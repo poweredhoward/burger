@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <title>Tasks</title>
+</head>
+<body>
+    <img src="/img/task.jpg" alt="task">
+    <ul>
+       {{{body}}}
+    </ul>
+
+    <input type="textarea" id="newtask">
+    <button id="submit">Submit</button>
+    <script>
+        $(document).ready(function(){
+            $("#submit").click(function(){
+                var newtask = {
+                    name: $("#newtask").val()
+                };
+                console.log(newtask);
+                $.ajax({
+                    type: "POST",
+                    data: newtask,
+                    url: "/api/tasks",    
+                }).then(function(data){
+                    console.log(data);
+                    location.reload();
+                })
+            })
+            
+        });
+    </script>
+    
+</body>
+</html>
