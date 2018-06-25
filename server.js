@@ -13,7 +13,8 @@ app.use(routes);
 
 
 
-// app.use("/public", path.join(__dirname, "/public"));
+
+app.use('/public', express.static(path.join(__dirname, 'public/')));
 app.use('/img', express.static(path.join(__dirname, 'public/assets/img')));
 // app.use(express.static("public"));
 

@@ -23,6 +23,15 @@ router.delete("/api/tasks/:id", function(req, res){
     })
 })
 
+router.put("/api/tasks/:id", function(req, res){
+    console.log("ID: " + req.params.id);
+    var id = req.params.id;
+    task.done(id, function(id){
+        console.log(id);
+        res.render("index", {tasks: id});
+    })
+})
+
 router.post("/api/tasks", function(req, res){
     console.log("Inside post");
     console.log(req.body);

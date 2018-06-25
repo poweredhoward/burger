@@ -5,48 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/public/assets/js/planner.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/assets/css/task_style.css">
     <title>Tasks</title>
 </head>
 <body>
-    <img src="/img/task.jpg" alt="task">
+    <div id="top">
+        <h1>Task Manager</h1>
+        <img src="/img/task.jpg" alt="task" id="task_img">
+    </div>
+
     <ul>
-       {{{body}}}
+    {{{body}}}
+
     </ul>
 
-    <input type="textarea" id="newtask">
-    <button id="submit">Submit</button>
-    <script>
-        $(document).ready(function(){
-            $("#submit").click(function(){
-                var newtask = {
-                    name: $("#newtask").val()
-                };
-                console.log(newtask);
-                $.ajax({
-                    type: "POST",
-                    data: newtask,
-                    url: "/api/tasks",    
-                }).then(function(data){
-                    console.log(data);
-                    location.reload();
-                })
-            });
-
-            $(".delete").click(function(){
-                var id = $(this).attr("data-id");
-                console.log(id);
-                $.ajax({
-                    type: "DELETE",
-                    //data: {id: id},
-                    url: "/api/tasks/" + id
-                }).then(function(data){
-                    console.log(data);
-                    location.reload();
-                });
-            });
-            
-        });
-    </script>
+    <div id="bottom">
+        <input type="textarea" id="newtask">
+        <button id="submit">Submit</button>
+    </div>
     
 </body>
 </html>

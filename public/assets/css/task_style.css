@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+
+#top:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.col {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+#right:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#bottom{
+    display: block;
+    clear: both;
+}

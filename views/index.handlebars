@@ -1,11 +1,23 @@
-{{#each tasks}}
+<div class="col" id="left">
+	<ul>
+		{{#each tasks}}
+			{{#unless done}}
+				{{> tasks/todo }}
+			{{/unless}}
+		{{/each}}
+	</ul>
+</div>
 
-<li>
-	{{name}}
+<div class="col" id="right">
+	<ul>
+		{{#each tasks}}
+			{{#if done}}
+				{{> tasks/done }}
+			{{/if}}
+		{{/each}}
+	</ul>
+</div>
 
-	<button class="delete" data-id="{{id}}" >
-		Delete
-	</button>
-</li>
 
-{{/each}}
+
+

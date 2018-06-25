@@ -23,10 +23,20 @@ var orm = {
             }
         )
     },
-
     delete: function(table, taskid, cb){
         connection.query(
             "DELETE FROM ?? WHERE id=?",
+            [table, taskid],
+            function(err, data){
+                if (err) throw err;
+                cb(data);
+            }
+        )
+    },
+
+    done: function(table, taskid, cb){
+        connection.query(
+            "UPDATE ?? SET done=true WHERE id=?",
             [table, taskid],
             function(err, data){
                 if (err) throw err;
