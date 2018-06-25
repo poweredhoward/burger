@@ -30,7 +30,20 @@
                     console.log(data);
                     location.reload();
                 })
-            })
+            });
+
+            $(".delete").click(function(){
+                var id = $(this).attr("data-id");
+                console.log(id);
+                $.ajax({
+                    type: "DELETE",
+                    //data: {id: id},
+                    url: "/api/tasks/" + id
+                }).then(function(data){
+                    console.log(data);
+                    location.reload();
+                });
+            });
             
         });
     </script>

@@ -14,6 +14,15 @@ router.get("/", function(req, res){
     
 });
 
+router.delete("/api/tasks/:id", function(req, res){
+    console.log("ID: " + req.params.id);
+    var id = req.params.id;
+    task.delete(id, function(id){
+        console.log(id);
+        res.render("index", {tasks: id});
+    })
+})
+
 router.post("/api/tasks", function(req, res){
     console.log("Inside post");
     console.log(req.body);

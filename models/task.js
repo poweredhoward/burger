@@ -7,6 +7,9 @@ var task = {
     },
     new: function(taskname, cb){
         orm.new("tasks", taskname, cb);
+    },
+    delete: function(taskname, cb){
+        orm.delete("tasks", taskname, cb);
     }
 }
 

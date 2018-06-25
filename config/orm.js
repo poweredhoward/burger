@@ -22,6 +22,17 @@ var orm = {
                 cb(data);
             }
         )
+    },
+
+    delete: function(table, taskid, cb){
+        connection.query(
+            "DELETE FROM ?? WHERE id=?",
+            [table, taskid],
+            function(err, data){
+                if (err) throw err;
+                cb(data);
+            }
+        )
     }
 }
 
